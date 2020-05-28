@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     ContentContainer: {
-        height: height/2,
+        // height: height/2,
         width: '89%'
     },
     ContextContainer: {

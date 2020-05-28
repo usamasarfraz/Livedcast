@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     ContentContainer: {
-        height: height/2,
+        // height: height/2,
         width: '89%'
     },
     ContextContainer: {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         alignItems: 'center',
         paddingVertical: 20,
-        paddingHorizontal: 10
+        paddingHorizontal: 20
     },
     JoinButton: {
         marginTop: 10,

@@ -26,7 +26,7 @@ export default class Login extends Component {
         this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
         this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
 
-        this.animate(120);
+        this.animate(140);
     };
     componentWillUnmount = () => {
         this.keyboardDidShowSub.remove();
@@ -64,12 +64,12 @@ export default class Login extends Component {
     keyboardDidHide = (event) => {
         Animated.timing(this.state.yValue, {
             duration: event.duration,
-            toValue: 120,
+            toValue: 140,
             useNativeDriver: true
         }).start();
     };
     handleLogin = () => {
-
+        this.props.navigation.navigate('Drawer');
     }
     toggleInfluencerModal = () => {
         if(this.state.isInfluencerModalVisible){
@@ -84,7 +84,11 @@ export default class Login extends Component {
         this.setState({isEnrollmentModalVisible: !this.state.isEnrollmentModalVisible});
     }
     toggleEnrollmentSuccessModal = () => {
-        this.setState({isEnrollmentSuccessModalVisible: !this.state.isEnrollmentSuccessModalVisible});
+        this.setState({isEnrollmentSuccessModalVisible: !this.state.isEnrollmentSuccessModalVisible},()=>{
+            if(!this.state.isEnrollmentSuccessModalVisible){
+                this.props.navigation.navigate('Register');
+            }
+        });
     }
     render(){
         return (
@@ -224,7 +228,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     TutorialAndLanguageContainer: {
-        marginTop: 40,
+        marginTop: 60,
         zIndex: 10,
         flexDirection: 'row'
     },
