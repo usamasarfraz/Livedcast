@@ -30,7 +30,7 @@ const Screens = ({ navigation, style }) => {
             </Button>
           ),
           headerRight: () => (
-            <Button transparent onPress={() => navigation.openDrawer()}>
+            <Button transparent onPress={() => navigation.navigate('Login')}>
               <Octicons name="sign-out" size={18} color="black" style={{ paddingHorizontal: 15 }} />
             </Button>
           )

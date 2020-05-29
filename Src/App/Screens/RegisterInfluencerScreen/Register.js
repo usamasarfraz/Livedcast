@@ -28,15 +28,15 @@ export default class Register extends Component {
         switch (this.state.position) {
             case 1:
             return (
-                <AccountInfo handleNext={this.handleNext} />
+                <AccountInfo {...this.props} handleNext={this.handleNext} />
             )
             case 2:
             return (
-                <ServiceInfo handleNext={this.handleNext} toggleCourceModal={this.toggleCourceModal} />
+                <ServiceInfo {...this.props} handleNext={this.handleNext} toggleCourceModal={this.toggleCourceModal} />
             )
             case 3:
             return (
-                <PaymentAndVerification />
+                <PaymentAndVerification {...this.props} />
             )
             default:
             return null;

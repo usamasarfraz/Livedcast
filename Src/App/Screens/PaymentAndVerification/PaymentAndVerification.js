@@ -10,6 +10,13 @@ export default class PaymentAndVerification extends Component {
     state={
         upload: false
     }
+    handleGoToMyAccount = () => {
+        if(this.state.upload){
+            this.props.navigation.navigate('Drawer');
+        }else{
+            this.setState({upload: true});
+        }
+    }
     render() {
         return (
             <View style={styles.Container}>
@@ -74,7 +81,7 @@ export default class PaymentAndVerification extends Component {
                     }
                 </View>
                 <View style={styles.MarginTop5}>
-                    <TouchableOpacity onPress={()=>this.setState({upload: true})} style={styles.Button}>
+                    <TouchableOpacity onPress={this.handleGoToMyAccount} style={styles.Button}>
                         <Text style={styles.ButtonText}>
                             Go to my account
                         </Text>

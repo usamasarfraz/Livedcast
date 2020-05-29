@@ -10,6 +10,7 @@ const Stack = createStackNavigator();
 import Login from '../../Screens/LoginScreen/Login';
 import Register from '../../Screens/RegisterInfluencerScreen/Register';
 import Drawer from './DrawerNavigation/Drawer';
+import Call from '../../Screens/CallScreen/Call';
 
 class MainNavigation extends Component {
     render(){
@@ -19,6 +20,7 @@ class MainNavigation extends Component {
                     <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
                     <Stack.Screen options={Header} name="Register" component={Register} />
                     <Stack.Screen options={{ headerShown: false }} name="Drawer" component={Drawer} />
+                    <Stack.Screen options={{ headerTransparent: true, headerTitle: null }} name="Call" component={Call} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

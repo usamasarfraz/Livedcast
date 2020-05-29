@@ -20,6 +20,14 @@ import i from '../../Assets/Images/i.png';
 import ChatSmall from '../../Assets/Images/chatSmall.png';
 import Money from '../../Assets/Images/money.png';
 import Diploma from '../../Assets/Images/diploma.png';
+import ProfilePicturePad from '../../Assets/Images/profilePicturePad.png';
+import FansListPad from '../../Assets/Images/fansListPad.png';
+import DiscussionPad from '../../Assets/Images/discussionPad.png';
+import ChatPad from '../../Assets/Images/chatPad.png';
+import CoursePadRectangle from '../../Assets/Images/coursePadRectangle.png';
+import VideoPricingPad from '../../Assets/Images/videoPricingPad.png';
+import CoursePricingPad from '../../Assets/Images/coursePricingPad.png';
+import ElectronicsSmall from '../../Assets/Images/electronicsSmall.png';
 export {
     Background,
     Group,
@@ -42,5 +50,13 @@ export {
     i,
     ChatSmall,
     Money,
-    Diploma
+    Diploma,
+    ProfilePicturePad,
+    FansListPad,
+    DiscussionPad,
+    ChatPad,
+    CoursePadRectangle,
+    VideoPricingPad,
+    CoursePricingPad,
+    ElectronicsSmall
 }

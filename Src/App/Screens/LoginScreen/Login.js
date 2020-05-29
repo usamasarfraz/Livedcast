@@ -69,7 +69,7 @@ export default class Login extends Component {
         }).start();
     };
     handleLogin = () => {
-        this.props.navigation.navigate('Drawer');
+        // this.props.navigation.navigate('Drawer');
     }
     toggleInfluencerModal = () => {
         if(this.state.isInfluencerModalVisible){
