@@ -42,6 +42,7 @@ const Screens = ({ navigation, style }) => {
 };
 
 const DrawerContent = props => {
+  const [Influencer, setInfluencer] = React.useState(true);
   return (
     <DrawerContentScrollView {...props} scrollEnabled={false} contentContainerStyle={{ flex: 1 }}>
       <Block>
@@ -80,10 +81,10 @@ const DrawerContent = props => {
           </Text>
           <Switch
             trackColor={{ false: "white", true: "#F5B6A5" }}
-            thumbColor={false ? "white" : "#F5B6A5"}
+            thumbColor={Influencer ? "white" : "#F5B6A5"}
             ios_backgroundColor="#3e3e3e"
-            // onValueChange={toggleSwitch}
-            value={false}
+            onValueChange={()=>setInfluencer(previousState => !previousState)}
+            value={Influencer}
           />
         </View>
       </Block>

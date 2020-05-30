@@ -28,6 +28,7 @@ import CoursePadRectangle from '../../Assets/Images/coursePadRectangle.png';
 import VideoPricingPad from '../../Assets/Images/videoPricingPad.png';
 import CoursePricingPad from '../../Assets/Images/coursePricingPad.png';
 import ElectronicsSmall from '../../Assets/Images/electronicsSmall.png';
+import ChartPad from '../../Assets/Images/chartPad.png';
 export {
     Background,
     Group,
@@ -58,5 +59,6 @@ export {
     CoursePadRectangle,
     VideoPricingPad,
     CoursePricingPad,
-    ElectronicsSmall
+    ElectronicsSmall,
+    ChartPad
 }
