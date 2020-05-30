@@ -29,6 +29,7 @@ import VideoPricingPad from '../../Assets/Images/videoPricingPad.png';
 import CoursePricingPad from '../../Assets/Images/coursePricingPad.png';
 import ElectronicsSmall from '../../Assets/Images/electronicsSmall.png';
 import ChartPad from '../../Assets/Images/chartPad.png';
+import OnlineSign from '../../Assets/Images/onlineSign.png';
 export {
     Background,
     Group,
@@ -60,5 +61,6 @@ export {
     VideoPricingPad,
     CoursePricingPad,
     ElectronicsSmall,
-    ChartPad
+    ChartPad,
+    OnlineSign
 }

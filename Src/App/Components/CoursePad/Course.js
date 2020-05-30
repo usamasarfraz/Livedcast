@@ -39,11 +39,13 @@ export default class Course extends Component {
                                 <Text numberOfLines={3} style={styles.Description}>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry
                                 </Text>
+                                {this.props.buttonTitle?
                                 <TouchableOpacity style={styles.EnrollButton}>
                                     <Text style={[styles.EnrollButtonText,{fontWeight: 'bold'}]}>
                                         {this.props.buttonTitle}
                                     </Text>
-                                </TouchableOpacity>
+                                </TouchableOpacity>:null
+                                }
                             </View>
                         </View>
                         <View style={styles.MarginTop10}>

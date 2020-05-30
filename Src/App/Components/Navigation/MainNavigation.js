@@ -21,7 +21,8 @@ class MainNavigation extends Component {
                 <Stack.Navigator initialRouteName="Login">
                     <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
                     <Stack.Screen options={Header} name="Register" component={Register} />
-                    <Stack.Screen options={{ headerShown: false }} name="Drawer" component={Drawer} />
+                    <Stack.Screen initialParams={{ Influencer: true }} options={{ headerShown: false }} name="Drawer" component={Drawer} />
+                    <Stack.Screen initialParams={{ Influencer: false }} options={{ headerShown: false }} name="Dashboard" component={Drawer} />
                     <Stack.Screen options={{ headerTransparent: true, headerTitle: null }} name="Call" component={Call} />
                     <Stack.Screen options={{ headerTitleAlign: "center" }} name="Calendar" component={Calendar} />
                     <Stack.Screen options={{ headerTitle: 'Payment History', headerTitleAlign: "center" }} name="PaymentHistory" component={PaymentHistory} />

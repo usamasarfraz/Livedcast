@@ -13,7 +13,7 @@ export default class ProfileImage extends Component {
                     <ImageBackground imageStyle={{borderRadius: 71}} source={Person} style={styles.Avatar} />
                 </View>
                 <TouchableOpacity style={styles.IconContainer}>
-                    <FAIcon name="pencil" color="white" size={18} />
+                    <FAIcon name="pencil" color="white" size={16} />
                 </TouchableOpacity>
             </View>
         )

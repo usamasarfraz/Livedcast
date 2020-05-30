@@ -26,7 +26,7 @@ export default class Courses extends Component {
         })
     }
     render() {
-        let coursesList = [{title: "$ 120\n Enroll"},{title: "Full"},{title: "Cancel \n& Refund"}]
+        let coursesList = [{title: "$ 120\n Enroll"},{title: "Full"},{title: "Cancel \n& Refund"}];
         return (
             <ScrollView style={styles.Container}>
                 <CoverAndProfile />

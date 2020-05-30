@@ -12,12 +12,14 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import { Block, Button } from 'expo-ui-kit';
 
 // screens
-import Dashboard from '../BottomTabNavigator/BottomTab';
+import InfluencerDashboard from '../BottomTabNavigator/BottomTab';
+import Dashboard from '../../../Screens/Dashboard/Dashboard';
+import MyProfile from '../../../Screens/MyProfileScreen/MyProfile';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const Screens = ({ navigation, style }) => {
+const InfluencerScreens = ({ navigation, style }) => {
   return (
     <Animated.View style={StyleSheet.flatten([styles.stack, style])}>
       <Stack.Navigator
@@ -35,17 +37,54 @@ const Screens = ({ navigation, style }) => {
             </Button>
           )
         }}>
-        <Stack.Screen name="Home">{props => <Dashboard {...props} />}</Stack.Screen>
+        <Stack.Screen name="Home">{props => <InfluencerDashboard {...props} />}</Stack.Screen>
+      </Stack.Navigator>
+    </Animated.View>
+  );
+};
+
+const Screens = ({ navigation, style }) => {
+  homeScreenOptions={
+    headerTransparent: true,
+    headerTitle: 'Dashboard',
+    headerTitleAlign: 'center',
+    headerTintColor: 'white',
+    headerLeft: () => (
+      <Button transparent onPress={() => navigation.openDrawer()}>
+        <Feather name="menu" size={18} color="white" style={{ paddingHorizontal: 15 }} />
+      </Button>
+    ),
+    headerRight: () => (
+      <Button transparent onPress={() => navigation.navigate('')}>
+        <Octicons name="search" size={18} color="white" style={{ paddingHorizontal: 15 }} />
+      </Button>
+    )
+  }
+  profileScreenOptions={
+    headerTitleAlign: 'center',
+    headerTitle: 'My Profile',
+    headerTintColor: 'black',
+    headerLeft: () => (
+      <Button transparent onPress={() => navigation.openDrawer()}>
+        <Feather name="menu" size={18} color="black" style={{ paddingHorizontal: 15 }} />
+      </Button>
+    )
+  }
+  return (
+    <Animated.View style={StyleSheet.flatten([styles.stack, style])}>
+      <Stack.Navigator>
+        <Stack.Screen options={homeScreenOptions} name="Home">{props => <Dashboard {...props} />}</Stack.Screen>
+        <Stack.Screen options={profileScreenOptions} name="MyProfile">{props => <MyProfile {...props} />}</Stack.Screen>
       </Stack.Navigator>
     </Animated.View>
   );
 };
 
 const DrawerContent = props => {
-  const [Influencer, setInfluencer] = React.useState(true);
   return (
     <DrawerContentScrollView {...props} scrollEnabled={false} contentContainerStyle={{ flex: 1 }}>
       <Block>
+        {props.Influencer?
         <Block flex={0.6} bottom>
           <DrawerItem
             label="Manage Courses"
@@ -72,6 +111,27 @@ const DrawerContent = props => {
             onPress={() => props.navigation.navigate('Calendar')}
           />
         </Block>
+        :<Block flex={0.6} bottom>
+          <DrawerItem
+            label="Dashboard"
+            labelStyle={styles.drawerLabel}
+            style={styles.drawerItem}
+            onPress={() => props.navigation.navigate('Home')}
+          />
+          <DrawerItem
+            label="My Profile"
+            labelStyle={styles.drawerLabel}
+            style={{ alignItems: 'flex-start', marginVertical: 0 }}
+            onPress={() => props.navigation.navigate('MyProfile')}
+          />
+          <DrawerItem
+            label="Discover"
+            labelStyle={styles.drawerLabel}
+            style={{ alignItems: 'flex-start', marginVertical: 0 }}
+            onPress={() => props.navigation.navigate('Discover')}
+          />
+        </Block>
+        }
       </Block>
 
       <Block style={{marginBottom: 10,alignSelf: 'flex-start',padding: 20}} bottom flex={false}>
@@ -81,10 +141,10 @@ const DrawerContent = props => {
           </Text>
           <Switch
             trackColor={{ false: "white", true: "#F5B6A5" }}
-            thumbColor={Influencer ? "white" : "#F5B6A5"}
+            thumbColor={props.Influencer ? "white" : "#F5B6A5"}
             ios_backgroundColor="#3e3e3e"
-            onValueChange={()=>setInfluencer(previousState => !previousState)}
-            value={Influencer}
+            onValueChange={props.onValueChange}
+            value={props.Influencer}
           />
         </View>
       </Block>
@@ -92,8 +152,9 @@ const DrawerContent = props => {
   );
 };
 
-export default () => {
+export default ({ route }) => {
   const [progress, setProgress] = React.useState(new Animated.Value(0));
+  const [Influencer, setInfluencer] = React.useState(route.params.Influencer);
   const scale = Animated.interpolate(progress, {
     inputRange: [0, 1],
     outputRange: [1, 0.8],
@@ -104,7 +165,9 @@ export default () => {
   });
 
   const animatedStyle = { borderRadius, transform: [{ scale }] };
-
+  onValueChange = () => {
+    setInfluencer(previousState => !previousState);
+  }
   return (
     <Block style={{ flex: 1 }}>
       <Drawer.Navigator
@@ -120,10 +183,10 @@ export default () => {
         sceneContainerStyle={{ backgroundColor: 'black' }}
         drawerContent={props => {
           setProgress(props.progress);
-          return <DrawerContent {...props} />;
+          return <DrawerContent Influencer={Influencer} onValueChange={onValueChange} {...props} />;
         }}>
         <Drawer.Screen name="Screens">
-          {props => <Screens {...props} style={animatedStyle} />}
+          {props => Influencer?<InfluencerScreens {...props} style={animatedStyle} />:<Screens {...props} style={animatedStyle} />}
         </Drawer.Screen>
       </Drawer.Navigator>
     </Block>
