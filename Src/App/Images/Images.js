@@ -30,6 +30,7 @@ import CoursePricingPad from '../../Assets/Images/coursePricingPad.png';
 import ElectronicsSmall from '../../Assets/Images/electronicsSmall.png';
 import ChartPad from '../../Assets/Images/chartPad.png';
 import OnlineSign from '../../Assets/Images/onlineSign.png';
+import SearchBar from '../../Assets/Images/searchBar.png';
 export {
     Background,
     Group,
@@ -62,5 +63,6 @@ export {
     CoursePricingPad,
     ElectronicsSmall,
     ChartPad,
-    OnlineSign
+    OnlineSign,
+    SearchBar,
 }

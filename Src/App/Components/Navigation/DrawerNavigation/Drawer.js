@@ -9,12 +9,14 @@ import {
 import Animated from 'react-native-reanimated';
 import Feather from 'react-native-vector-icons/Feather';
 import Octicons from 'react-native-vector-icons/Octicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Block, Button } from 'expo-ui-kit';
 
 // screens
 import InfluencerDashboard from '../BottomTabNavigator/BottomTab';
 import Dashboard from '../../../Screens/Dashboard/Dashboard';
 import MyProfile from '../../../Screens/MyProfileScreen/MyProfile';
+import Discover from '../../../Screens/DiscoverScreen/Discover';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -55,7 +57,7 @@ const Screens = ({ navigation, style }) => {
       </Button>
     ),
     headerRight: () => (
-      <Button transparent onPress={() => navigation.navigate('')}>
+      <Button transparent onPress={() => navigation.navigate('Search')}>
         <Octicons name="search" size={18} color="white" style={{ paddingHorizontal: 15 }} />
       </Button>
     )
@@ -70,11 +72,37 @@ const Screens = ({ navigation, style }) => {
       </Button>
     )
   }
+  discoverScreenOptions={
+    headerStyle: {
+      backgroundColor: '#F6E4D9',
+      borderBottomWidth: 0,
+      shadowColor: 'transparent',
+      elevation:0
+        // shadowRadius: 0,
+        // shadowOffset: {
+        //     height: 0,
+        // }
+    },
+    headerTitle: 'Discover',
+    headerTitleAlign: 'center',
+    headerTintColor: 'black',
+    headerLeft: () => (
+      <Button transparent onPress={() => navigation.openDrawer()}>
+        <Feather name="menu" size={18} color="black" style={{ paddingHorizontal: 15 }} />
+      </Button>
+    ),
+    headerRight: () => (
+      <Button transparent onPress={() => {}}>
+        <MaterialCommunityIcons name="filter" size={18} color="black" style={{ paddingHorizontal: 15 }} />
+      </Button>
+    )
+  }
   return (
     <Animated.View style={StyleSheet.flatten([styles.stack, style])}>
       <Stack.Navigator>
-        <Stack.Screen options={homeScreenOptions} name="Home">{props => <Dashboard {...props} />}</Stack.Screen>
+        <Stack.Screen options={homeScreenOptions} name="Home">{props => <Dashboard check={true} {...props} />}</Stack.Screen>
         <Stack.Screen options={profileScreenOptions} name="MyProfile">{props => <MyProfile {...props} />}</Stack.Screen>
+        <Stack.Screen options={discoverScreenOptions} name="Discover">{props => <Discover {...props} />}</Stack.Screen>
       </Stack.Navigator>
     </Animated.View>
   );

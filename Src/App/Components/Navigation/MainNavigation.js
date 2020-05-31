@@ -13,6 +13,8 @@ import Drawer from './DrawerNavigation/Drawer';
 import Call from '../../Screens/CallScreen/Call';
 import Calendar from '../../Screens/CalendarScreen/Calendar';
 import PaymentHistory from '../../Screens/PaymentHistoryScreen/PaymentHistory';
+import About from '../../Screens/AboutScreen/About';
+import Search from '../../Screens/SearchScreen/Search';
 
 class MainNavigation extends Component {
     render(){
@@ -26,6 +28,8 @@ class MainNavigation extends Component {
                     <Stack.Screen options={{ headerTransparent: true, headerTitle: null }} name="Call" component={Call} />
                     <Stack.Screen options={{ headerTitleAlign: "center" }} name="Calendar" component={Calendar} />
                     <Stack.Screen options={{ headerTitle: 'Payment History', headerTitleAlign: "center" }} name="PaymentHistory" component={PaymentHistory} />
+                    <Stack.Screen options={{ headerTransparent: true, headerTitle: 'Emma Watson', headerTitleAlign: "center" }} name="About" component={About} />
+                    <Stack.Screen options={{ headerTitle: 'Search', headerTitleAlign: "center" }} name="Search" component={Search} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

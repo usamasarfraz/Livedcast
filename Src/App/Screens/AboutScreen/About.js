@@ -5,18 +5,35 @@ import { View, Text, ImageBackground, StyleSheet, ScrollView, Image, TouchableOp
 import CoverAndProfile from '../../Components/CoverAndProfile/CoverAndProfile';
 // Images
 import { FansListPad, DiscussionPad, Person } from '../../Images/Images';
+// Modals
+import { LineMeUpModal, NextInLineModal } from '../../Components/Modals/index';
 
 export default class About extends Component {
+    state={
+        isLineMeUpModal: false,
+        isNextInLineModal: false,
+    }
+    toggleLineMeUp = () => {
+        this.setState({
+            isLineMeUpModal: !this.state.isLineMeUpModal
+        })
+    }
+    toggleNextInLine = () => {
+        this.setState({
+            isNextInLineModal: !this.state.isNextInLineModal
+        })
+    }
     render() {
         return (
+            <View>
             <ScrollView style={styles.Container}>
-                <CoverAndProfile />
+                <CoverAndProfile check={this.props.check} />
                 <ImageBackground source={FansListPad} style={styles.FansListPadImage}>
                     <View style={styles.FansListContainer}>
                         <View style={styles.CircleImageMainContainer}>
                             <View style={styles.CircleImageContainer}>
                                 <View>
-                                    <Image source={Person} style={styles.FanImageTop} />
+                                    <Image source={Person} style={this.props.check?styles.FanImageTop:styles.FanImage} />
                                 </View>
                                 {
                                     [1,2,3,4].map((item,index)=>{
@@ -28,15 +45,29 @@ export default class About extends Component {
                                     })
                                 }
                             </View>
+                            {this.props.check?
                             <Text style={{flex: 1.3,fontSize: 12,color: 'grey'}}>
                                 6 Fans waiting
                             </Text>
+                            :<TouchableOpacity onPress={this.toggleNextInLine}>
+                                <Text style={{flex: 1.3,fontSize: 12,color: 'grey',marginTop: 14}}>
+                                    6 Fans waiting
+                                </Text>
+                            </TouchableOpacity>
+                            }
                         </View>
+                        {this.props.check?
                         <TouchableOpacity onPress={()=>this.props.navigation.navigate('Call')} style={styles.Button}>
                             <Text style={styles.ButtonText}>
                                 Accept Call
                             </Text>
                         </TouchableOpacity>
+                        :<TouchableOpacity onPress={this.toggleLineMeUp} style={styles.Button}>
+                            <Text style={styles.ButtonText}>
+                                Line me up
+                            </Text>
+                        </TouchableOpacity>
+                        }
                     </View>
                 </ImageBackground>
                 <ImageBackground source={DiscussionPad} style={styles.DiscussionPadImage}>
@@ -72,6 +103,9 @@ export default class About extends Component {
                     </View>
                 </ImageBackground>
             </ScrollView>
+            <LineMeUpModal isModalVisible={this.state.isLineMeUpModal} toggleModal={this.toggleLineMeUp} />
+            <NextInLineModal isModalVisible={this.state.isNextInLineModal} toggleModal={this.toggleNextInLine} />
+            </View>
         )
     }
 }

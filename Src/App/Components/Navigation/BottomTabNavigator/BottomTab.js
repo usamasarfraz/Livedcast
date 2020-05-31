@@ -7,6 +7,11 @@ import About from '../../../Screens/AboutScreen/About';
 import Courses from '../../../Screens/CoursesScreen/Courses';
 import Prices from '../../../Screens/PricesScreen/Prices';
 const Tab = createBottomTabNavigator();
+function AboutScreen() {
+  return (
+    <About check={true} />
+  )
+}
 
 function MyTabs() {
   return (
@@ -18,7 +23,7 @@ function MyTabs() {
     >
       <Tab.Screen
         name="About"
-        component={About}
+        component={AboutScreen}
         options={{
           tabBarLabel: 'About',
           tabBarIcon: ({ color, size }) => (

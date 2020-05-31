@@ -4,9 +4,8 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 // Components
 import CoverAndProfile from '../../Components/CoverAndProfile/CoverAndProfile';
 import Course from '../../Components/CoursePad/Course';
-// Modal
-import CourceEnrollmentModal from '../../Components/Modals/CourceEnrollmentModal';
-import AddCourse from '../../Components/Modals/AddCourseModal';
+// Modals
+import { CourceEnrollmentModal, AddCourseModal } from '../../Components/Modals/index';
 
 export default class Courses extends Component {
     state={
@@ -44,7 +43,7 @@ export default class Courses extends Component {
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <AddCourse isModalVisible={this.state.isAddCourseModal} toggleModal={this.toggleAddCourseModal} />
+                <AddCourseModal isModalVisible={this.state.isAddCourseModal} toggleModal={this.toggleAddCourseModal} />
                 <CourceEnrollmentModal isModalVisible={this.state.isCourceModal} toggleModal={this.toggleCourceModal} />
             </ScrollView>
         )

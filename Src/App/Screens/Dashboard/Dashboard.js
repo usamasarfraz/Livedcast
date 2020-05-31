@@ -1,22 +1,32 @@
 import React,{ Component } from 'react';
-import { View, Text, Dimensions, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Dimensions, StyleSheet, ScrollView, Image } from 'react-native';
 
 // Components
 import CoverAndProfile from '../../Components/CoverAndProfile/CoverAndProfile';
 import Course from '../../Components/CoursePad/Course';
 import OnlineUsersBar from '../../Components/OnlineUsersBar/OnlineUsers';
+// Modals
+import { EscrowModal } from '../../Components/Modals/index';
 // Images
 import { Person } from '../../Images/Images';
 
 const { height } = Dimensions.get('window');
 
 export default class Dashboard extends Component {
+    state={
+        isEscrow: false
+    }
+    toggleEscrow = () => {
+        this.setState({
+            isEscrow: !this.state.isEscrow
+        })
+    }
     render() {
         let coursesList = [{title: "Enrolled"},{title: "Cancel \n& Refund"}];
         return (
             <View style={{position: 'relative'}}>
                 <ScrollView>
-                    <CoverAndProfile />
+                    <CoverAndProfile escrow={true} toggleEscrow={this.toggleEscrow} check={this.props.check} />
                     <View style={styles.FlexRowContentCenter}>
                         <View>
                             <Image source={Person} style={styles.ModelPicture} />
@@ -43,6 +53,7 @@ export default class Dashboard extends Component {
                 <View style={styles.OnlineBar}>
                     <OnlineUsersBar />
                 </View>
+                <EscrowModal isModalVisible={this.state.isEscrow} toggleModal={this.toggleEscrow} />
             </View>
         )
     }

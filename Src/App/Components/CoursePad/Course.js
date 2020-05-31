@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, ImageBackground } from 'react-native';
-import { Rating, AirbnbRating } from 'react-native-ratings';
+import { Rating } from 'react-native-ratings';
 // Images
 import { CoursePadRectangle, Date, Men, Clock, Contract } from '../../Images/Images';
 export default class Course extends Component {

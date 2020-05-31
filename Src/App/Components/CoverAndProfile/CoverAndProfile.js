@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { View, Text, Image, StyleSheet, Dimensions, ImageBackground } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, ImageBackground, TouchableOpacity } from 'react-native';
 
 const { height } = Dimensions.get('window');
 // Images
@@ -42,12 +42,24 @@ export default class About extends Component {
                                         </Text>
                                     </View>
                                     <View style={styles.AlignItemsCenter}>
+                                        {this.props.check?
                                         <Text style={styles.Font15Bold}>
                                             $50
                                         </Text>
-                                        <Text style={styles.Font12Grey}>
-                                            Escrow
+                                        :<Text style={[styles.Font15Bold,{color: '#4CAF50'}]}>
+                                            online
                                         </Text>
+                                        }
+                                        {this.props.escrow?
+                                        <TouchableOpacity onPress={this.props.toggleEscrow}>
+                                            <Text style={styles.Font12Grey}>
+                                                Escrow
+                                            </Text>
+                                        </TouchableOpacity>
+                                        :<Text style={styles.Font12Grey}>
+                                            {this.props.check?"Escrow":"Status"}
+                                        </Text>
+                                        }
                                     </View>
                                 </View>
                             </View>

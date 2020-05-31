@@ -6,8 +6,8 @@ import Stepper from '../../Components/Stepper/Stepper';
 import AccountInfo from '../AccountInfoScreen/AccountInfo';
 import ServiceInfo from '../ServiceInfoScreen/ServiceInfo';
 import PaymentAndVerification from '../PaymentAndVerification/PaymentAndVerification';
-// Modal
-import CourceEnrollmentModal from '../../Components/Modals/CourceEnrollmentModal';
+// Modals
+import { CourceEnrollmentModal } from '../../Components/Modals/index';
 
 export default class Register extends Component {
     state={
