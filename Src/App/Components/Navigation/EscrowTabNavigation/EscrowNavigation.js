@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     HeadingText: {
         fontSize: 17,
         fontWeight: 'bold',
-        color: 'pink'
+        color: '#F5B6A5'
     },
     ValueText: {
         fontSize: 14,
