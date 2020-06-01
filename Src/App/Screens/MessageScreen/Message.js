@@ -9,7 +9,7 @@ export default class Messages extends Component {
     render() {
         return (
             <ScrollView scrollEnabled={true} style={styles.Container}>
-                <CoverAndProfile />
+                <CoverAndProfile check={this.props.check} />
                 <View style={{flex: 1}}>
                     <ChatBox />
                 </View>

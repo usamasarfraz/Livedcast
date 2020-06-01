@@ -13,6 +13,21 @@ function AboutScreen(props) {
     <About {...props} check={true} />
   )
 }
+function MessageScreen(props) {
+  return (
+    <Message {...props} check={true} />
+  )
+}
+function CoursesScreen(props) {
+  return (
+    <Courses {...props} check={true} />
+  )
+}
+function PricesScreen(props) {
+  return (
+    <Prices {...props} check={true} />
+  )
+}
 
 function MyTabs() {
   return (
@@ -34,7 +49,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Message"
-        component={Message}
+        component={MessageScreen}
         options={{
           tabBarLabel: 'Message',
           tabBarIcon: ({ color, size }) => (
@@ -44,7 +59,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Courses"
-        component={Courses}
+        component={CoursesScreen}
         options={{
           tabBarLabel: 'Courses',
           tabBarIcon: ({ color, size }) => (
@@ -54,7 +69,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Prices"
-        component={Prices}
+        component={PricesScreen}
         options={{
           tabBarLabel: 'Prices',
           tabBarIcon: ({ color, size }) => (

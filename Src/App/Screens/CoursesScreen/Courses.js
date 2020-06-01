@@ -28,7 +28,7 @@ export default class Courses extends Component {
         let coursesList = [{title: "$ 120\n Enroll"},{title: "Full"},{title: "Cancel \n& Refund"}];
         return (
             <ScrollView style={styles.Container}>
-                <CoverAndProfile />
+                <CoverAndProfile check={this.props.check} />
                 <View>
                     {
                         coursesList.map((data,index)=>{

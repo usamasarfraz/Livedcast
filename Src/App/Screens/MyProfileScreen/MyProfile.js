@@ -55,7 +55,7 @@ export default class MyProfile extends Component {
                     </View>
                 </ScrollView>
                 <View style={styles.BottomBar}>
-                    <TouchableOpacity style={styles.LoginButton}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('Login')} style={styles.LoginButton}>
                         <Text style={styles.LoginButtonText}>
                             Logout
                         </Text>

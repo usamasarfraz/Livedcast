@@ -9,7 +9,7 @@ export default class Prices extends Component {
     render() {
         return (
             <ScrollView style={styles.Container}>
-                <CoverAndProfile />
+                <CoverAndProfile check={this.props.check} />
                 <View>
                     <ImageBackground source={VideoPricingPad} style={styles.VideoPricingPadImage}>
                         <View style={styles.VideoPricingContainer}>
