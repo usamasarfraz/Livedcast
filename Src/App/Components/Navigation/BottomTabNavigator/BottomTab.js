@@ -7,9 +7,10 @@ import About from '../../../Screens/AboutScreen/About';
 import Courses from '../../../Screens/CoursesScreen/Courses';
 import Prices from '../../../Screens/PricesScreen/Prices';
 const Tab = createBottomTabNavigator();
-function AboutScreen() {
+
+function AboutScreen(props) {
   return (
-    <About check={true} />
+    <About {...props} check={true} />
   )
 }
 

@@ -4,7 +4,6 @@ import {
   Text,
   ImageBackground,
   StyleSheet,
-  Dimensions,
   TouchableOpacity,
 } from 'react-native';
 import Modal from 'react-native-modal';
@@ -13,8 +12,6 @@ import { CourcePad } from '../../Images/Images';
 // Components
 import Select from '../Select/Select';
 import Input from '../LabeledInput/Input';
-
-const {height, width} = Dimensions.get('window');
 
 export default class AddCourse extends Component {
   render() {

@@ -3,7 +3,8 @@ import { Text, View, StyleSheet, TouchableOpacity, Dimensions, Image } from 'rea
 import Modal from 'react-native-modal';
 // Images
 import { X } from '../../Images/Images';
-
+// Escrow Tabs
+import Escrow from '../../Components/Navigation/EscrowTabNavigation/EscrowNavigation';
 const { height } = Dimensions.get('window');
 export default class Influencer extends Component {
   render() {
@@ -40,6 +41,9 @@ export default class Influencer extends Component {
                         <Text style={styles.DescriptionText}>
                             You can deposite or withdraw your money anytime
                         </Text>
+                    </View>
+                    <View style={[styles.MarginTop10,{width: '100%'}]}>
+                        <Escrow />
                     </View>
                 </View>
                 <TouchableOpacity onPress={this.props.toggleModal} style={styles.JoinButton}>
