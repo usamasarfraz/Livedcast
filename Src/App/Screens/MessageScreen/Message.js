@@ -8,12 +8,14 @@ import ChatBox from '../../Components/ChatBox/Chat';
 export default class Messages extends Component {
     render() {
         return (
-            <ScrollView scrollEnabled={true} style={styles.Container}>
+            <>
                 <CoverAndProfile check={this.props.check} />
-                <View style={{flex: 1}}>
-                    <ChatBox />
-                </View>
-            </ScrollView>
+                <ScrollView scrollEnabled={true}>
+                    <View style={{flex: 1}}>
+                        <ChatBox />
+                    </View>
+                </ScrollView>
+            </>
         )
     }
 }

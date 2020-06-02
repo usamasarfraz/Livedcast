@@ -28,18 +28,20 @@ export default class Card extends Component {
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
-        height: 180,
+        height: 170,
         width: width/3.6,
-        marginRight: 10
+        marginRight: 10,
+        borderRadius: 12,
+        overflow: 'hidden',
+        backgroundColor: 'white',
+        marginBottom: 5
     },
     image: {
         backgroundColor: 'red',
-        height: '70%',
+        height: '73%',
         width: '100%',
-        borderRadius: 20,
     },
     ContextContainer: {
-        marginTop: 5,
         paddingHorizontal: 10
     },
     Font16Bold: {

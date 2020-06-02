@@ -73,7 +73,7 @@ export default class About extends Component {
 
 const styles = StyleSheet.create({
     Container: {
-        flex: 1
+        // flex: 1
     },
     CoverImage: {
         height: height/2.6,

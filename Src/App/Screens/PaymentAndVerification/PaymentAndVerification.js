@@ -134,7 +134,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 15,
         borderRadius: 10,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        marginBottom: 5
     },
     ButtonText: {
         color: 'white',

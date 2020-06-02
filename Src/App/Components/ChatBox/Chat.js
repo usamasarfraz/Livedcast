@@ -1,9 +1,11 @@
 import React,{ Component } from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ScrollView, Dimensions, Image, TouchableOpacity } from 'react-native';
 // Images
 import { ChatPad, Person } from '../../Images/Images';
 // Icons
 import { MCIcon } from '../../Icons/Icons';
+
+const { height } = Dimensions.get('window');
 
 export default class Chat extends Component {
     render() {
@@ -16,9 +18,9 @@ export default class Chat extends Component {
             {id: 2,image: Person, msg: 'Me too', date: '23:00'}
         ]
         return (
-            <ImageBackground source={ChatPad} style={styles.Container}>
-                <View style={{flex: 1}}>
-                    <ScrollView nestedScrollEnabled={true} style={styles.ChatContainer}>
+            <View style={styles.Container}>
+                <View style={{flex: 1, borderRadius: 20, overflow: 'hidden',backgroundColor: 'white'}}>
+                    <ScrollView nestedScrollEnabled={true} showsVerticalScrollIndicator={false} style={styles.ChatContainer}>
                         {
                             chatList.map((data,index)=>{
                                 return (
@@ -64,7 +66,7 @@ export default class Chat extends Component {
                         </View>
                     </View>
                 </View>
-            </ImageBackground>
+            </View>
         )
     }
 }
@@ -72,12 +74,11 @@ export default class Chat extends Component {
 const styles = StyleSheet.create({
     Container: {
         width: '100%',
-        height: 420,
-        marginTop: -22
+        height: height-(height/2.6+130),
+        paddingHorizontal: 35
     },
     ChatContainer: {
-        marginHorizontal: 40,
-        marginTop: 35
+        padding: 5
     },
     ChatList: {
         marginBottom: 10,
@@ -139,8 +140,8 @@ const styles = StyleSheet.create({
         marginTop: 0.7,
         flexDirection: 'row',
         backgroundColor: 'black',
-        marginHorizontal: 40,
-        marginBottom: 35,
+        marginHorizontal: 5,
+        marginBottom: 5,
         borderRadius: 10
     },
     MessageInput: {

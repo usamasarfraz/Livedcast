@@ -27,25 +27,27 @@ export default class Courses extends Component {
     render() {
         let coursesList = [{title: "$ 120\n Enroll"},{title: "Full"},{title: "Cancel \n& Refund"}];
         return (
-            <ScrollView style={styles.Container}>
+            <>
                 <CoverAndProfile check={this.props.check} />
-                <View>
-                    {
-                        coursesList.map((data,index)=>{
-                            return (
-                                <Course key={index} buttonTitle={data.title} />
-                            )
-                        })
-                    }
-                    <TouchableOpacity onPress={this.toggleAddCourseModal} style={styles.Button}>
-                        <Text style={styles.ButtonText}>
-                            Add New
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-                <AddCourseModal isModalVisible={this.state.isAddCourseModal} toggleModal={this.toggleAddCourseModal} />
-                <CourceEnrollmentModal isModalVisible={this.state.isCourceModal} toggleModal={this.toggleCourceModal} />
-            </ScrollView>
+                <ScrollView>
+                    <View>
+                        {
+                            coursesList.map((data,index)=>{
+                                return (
+                                    <Course key={index} buttonTitle={data.title} />
+                                )
+                            })
+                        }
+                        <TouchableOpacity onPress={this.toggleAddCourseModal} style={styles.Button}>
+                            <Text style={styles.ButtonText}>
+                                Add New
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <AddCourseModal isModalVisible={this.state.isAddCourseModal} toggleModal={this.toggleAddCourseModal} />
+                    <CourceEnrollmentModal isModalVisible={this.state.isCourceModal} toggleModal={this.toggleCourceModal} />
+                </ScrollView>
+            </>
         )
     }
 }

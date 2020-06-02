@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { View, Text, ImageBackground, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet, ScrollView, Image, TouchableOpacity, Dimensions } from 'react-native';
 
 // Components
 import CoverAndProfile from '../../Components/CoverAndProfile/CoverAndProfile';
@@ -7,6 +7,8 @@ import CoverAndProfile from '../../Components/CoverAndProfile/CoverAndProfile';
 import { FansListPad, DiscussionPad, Person } from '../../Images/Images';
 // Modals
 import { LineMeUpModal, NextInLineModal } from '../../Components/Modals/index';
+
+const { height } = Dimensions.get('window');
 
 export default class About extends Component {
     state={
@@ -26,83 +28,83 @@ export default class About extends Component {
     render() {
         return (
             <View>
-            <ScrollView style={styles.Container}>
                 <CoverAndProfile check={this.props.check} />
-                <ImageBackground source={FansListPad} style={styles.FansListPadImage}>
-                    <View style={styles.FansListContainer}>
-                        <View style={styles.CircleImageMainContainer}>
-                            <View style={styles.CircleImageContainer}>
-                                <View>
-                                    <Image source={Person} style={this.props.check?styles.FanImageTop:styles.FanImage} />
+                <ScrollView>
+                    <ImageBackground source={FansListPad} style={styles.FansListPadImage}>
+                        <View style={styles.FansListContainer}>
+                            <View style={styles.CircleImageMainContainer}>
+                                <View style={styles.CircleImageContainer}>
+                                    <View>
+                                        <Image source={Person} style={this.props.check?styles.FanImageTop:styles.FanImage} />
+                                    </View>
+                                    {
+                                        [1,2,3,4].map((item,index)=>{
+                                            return (
+                                                <View key={index}>
+                                                    <Image source={Person} style={styles.FanImage} />
+                                                </View>
+                                            )
+                                        })
+                                    }
                                 </View>
-                                {
-                                    [1,2,3,4].map((item,index)=>{
-                                        return (
-                                            <View key={index}>
-                                                <Image source={Person} style={styles.FanImage} />
-                                            </View>
-                                        )
-                                    })
+                                {this.props.check?
+                                <Text style={{flex: 1.3,fontSize: 12,color: 'grey'}}>
+                                    6 Fans waiting
+                                </Text>
+                                :<TouchableOpacity onPress={this.toggleNextInLine}>
+                                    <Text style={{flex: 1.3,fontSize: 12,color: 'grey',marginTop: 14}}>
+                                        6 Fans waiting
+                                    </Text>
+                                </TouchableOpacity>
                                 }
                             </View>
                             {this.props.check?
-                            <Text style={{flex: 1.3,fontSize: 12,color: 'grey'}}>
-                                6 Fans waiting
-                            </Text>
-                            :<TouchableOpacity onPress={this.toggleNextInLine}>
-                                <Text style={{flex: 1.3,fontSize: 12,color: 'grey',marginTop: 14}}>
-                                    6 Fans waiting
+                            <TouchableOpacity onPress={()=>this.props.navigation.navigate('Call')} style={styles.Button}>
+                                <Text style={styles.ButtonText}>
+                                    Accept Call
+                                </Text>
+                            </TouchableOpacity>
+                            :<TouchableOpacity onPress={this.toggleLineMeUp} style={styles.Button}>
+                                <Text style={styles.ButtonText}>
+                                    Line me up
                                 </Text>
                             </TouchableOpacity>
                             }
                         </View>
-                        {this.props.check?
-                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Call')} style={styles.Button}>
-                            <Text style={styles.ButtonText}>
-                                Accept Call
-                            </Text>
-                        </TouchableOpacity>
-                        :<TouchableOpacity onPress={this.toggleLineMeUp} style={styles.Button}>
-                            <Text style={styles.ButtonText}>
-                                Line me up
-                            </Text>
-                        </TouchableOpacity>
-                        }
-                    </View>
-                </ImageBackground>
-                <ImageBackground source={DiscussionPad} style={styles.DiscussionPadImage}>
-                    <View style={styles.DiscussionContainer}>
-                        <View style={styles.DiscussionImageAndNameContainer}>
-                            <View>
-                                <Image source={Person} style={styles.DiscussionImage} />
+                    </ImageBackground>
+                    <ImageBackground source={DiscussionPad} style={styles.DiscussionPadImage}>
+                        <View style={styles.DiscussionContainer}>
+                            <View style={styles.DiscussionImageAndNameContainer}>
+                                <View>
+                                    <Image source={Person} style={styles.DiscussionImage} />
+                                </View>
+                                <View style={styles.ModelNameAndProfessionText}>
+                                    <Text style={styles.ModelNameText}>
+                                        Emma Watson
+                                    </Text>
+                                    <Text style={styles.ModelProfessionText}>
+                                        Model, Actress
+                                    </Text>
+                                </View>
                             </View>
-                            <View style={styles.ModelNameAndProfessionText}>
-                                <Text style={styles.ModelNameText}>
-                                    Emma Watson
-                                </Text>
-                                <Text style={styles.ModelProfessionText}>
-                                    Model, Actress
+                            <View style={styles.MarginTop3}>
+                                <Text style={styles.DiscussionQuestionText}>
+                                    What we can discuss?
                                 </Text>
                             </View>
+                            <View style={styles.MarginTop3}>
+                                <Text style={{fontWeight: 'bold'}}>
+                                    Women's rights work
+                                </Text>
+                            </View>
+                            <View style={styles.MarginTop3}>
+                                <Text style={styles.DiscussionDescription} numberOfLines={2}>
+                                    I am the top 99 outstanding women 2015, if there are anything related with women rights work, freely to ask...
+                                </Text>
+                            </View>
                         </View>
-                        <View style={styles.MarginTop3}>
-                            <Text style={styles.DiscussionQuestionText}>
-                                What we can discuss?
-                            </Text>
-                        </View>
-                        <View style={styles.MarginTop3}>
-                            <Text style={{fontWeight: 'bold'}}>
-                                Women's rights work
-                            </Text>
-                        </View>
-                        <View style={styles.MarginTop3}>
-                            <Text style={styles.DiscussionDescription} numberOfLines={2}>
-                                I am the top 99 outstanding women 2015, if there are anything related with women rights work, freely to ask...
-                            </Text>
-                        </View>
-                    </View>
-                </ImageBackground>
-            </ScrollView>
+                    </ImageBackground>
+                </ScrollView>
             <LineMeUpModal isModalVisible={this.state.isLineMeUpModal} toggleModal={this.toggleLineMeUp} />
             <NextInLineModal isModalVisible={this.state.isNextInLineModal} toggleModal={this.toggleNextInLine} />
             </View>
@@ -126,6 +128,7 @@ const styles = StyleSheet.create({
     DiscussionPadImage: {
         height: 210,
         marginTop: -15,
+        marginBottom: height/2.6+60,
         resizeMode: "cover",
     },
     DiscussionContainer: {

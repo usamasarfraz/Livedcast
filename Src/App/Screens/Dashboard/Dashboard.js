@@ -25,8 +25,8 @@ export default class Dashboard extends Component {
         let coursesList = [{title: "Enrolled"},{title: "Cancel \n& Refund"}];
         return (
             <View style={{position: 'relative'}}>
+                <CoverAndProfile escrow={true} toggleEscrow={this.toggleEscrow} check={this.props.check} />
                 <ScrollView>
-                    <CoverAndProfile escrow={true} toggleEscrow={this.toggleEscrow} check={this.props.check} />
                     <View style={styles.FlexRowContentCenter}>
                         <View>
                             <Image source={Person} style={styles.ModelPicture} />
@@ -61,6 +61,7 @@ export default class Dashboard extends Component {
 
 const styles = StyleSheet.create({
     FlexRowContentCenter: {
+        marginTop: 10,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     },
     CoursesContainer: {
         marginTop: 20,
-        marginBottom: 110
+        marginBottom: 110+height/2.6+60
     },
     OnlineBar: {
         position: 'absolute',

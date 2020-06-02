@@ -13,8 +13,12 @@ export default class AccountInfo extends Component {
             <View style={styles.Container}>
                 <ProfileImage />
                 <View>
-                    <Input label="Name" placeholder="Write here" />
-                    <Input label="Best title for you" placeholder="English actress, model etc..." />
+                    <View style={styles.MarginTop10}>
+                        <Input label="Name" placeholder="Write here" />
+                    </View>
+                    <View style={styles.MarginTop10}>
+                        <Input label="Best title for you" placeholder="English actress, model etc..." />
+                    </View>
                     <View>
                         <Text style={styles.DescriptionTitle}>
                             Best Describe yourself
@@ -27,7 +31,9 @@ export default class AccountInfo extends Component {
                         {
                             list.map((value,index)=>{
                                 return (
-                                    <Tag key={index} TextValue={value} />
+                                    <View style={{marginBottom: 7}} key={index}>
+                                        <Tag TextValue={value} />
+                                    </View>
                                 )
                             })
                         }
@@ -50,13 +56,14 @@ const styles = StyleSheet.create({
     DescriptionTitle: {
         fontSize: 16,
         fontWeight: 'bold',
-        marginTop: 5
+        marginTop: 10,
+        marginBottom: 5,
     },
     FontSize13: {
         fontSize: 13
     },
     TagContainer: {
-        marginTop: 3,
+        marginTop: 12,
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-between'
@@ -68,11 +75,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 15,
         borderRadius: 10,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        marginBottom: 5
     },
     ButtonText: {
         color: 'white',
         fontSize: 17,
         fontWeight: 'bold'
     },
+    MarginTop10: {
+        marginTop: 10
+    }
 });
